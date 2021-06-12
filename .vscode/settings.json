@@ -1,0 +1,4 @@
+{
+  "appService.defaultWebAppToDeploy": "/subscriptions/1f509a01-ce2f-4554-a69e-70c7c6a5c18e/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/orbits-api",
+  "appService.deploySubpath": "."
+}
