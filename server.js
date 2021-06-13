@@ -14,12 +14,7 @@ app.use(express.urlencoded({ extended: false }));
 
 // API Router
 
-app.get("/", (_, res, next) => {
-    res.redirect("/api");
-    next();
-});
-
-app.use("/api", router);
+app.use("/", router);
 
 connectDB()
     .then((data) => {
