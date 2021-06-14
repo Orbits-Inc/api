@@ -18,5 +18,5 @@ jobs:
         script: |
           cd api/
           git pull
-          pm2 restart 0 --update-env
+          pm2 reload 0 --update-env
 
