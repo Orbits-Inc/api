@@ -1,0 +1,22 @@
+name: Deployment Workflow
+on:
+    push:
+        branches: [ main ]
+
+jobs:
+  job_one:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: testing server connection
+      uses: apple/ssh-action@master
+      with: 
+        host: api.theorbits.tech
+        username: sahil
+        key: ${{ secrets.ACCESS_SECRET }}
+        port: 22
+        script: |
+          cd api/
+          git pull
+          git status
+
