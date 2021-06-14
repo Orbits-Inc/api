@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: testing server connection
-      uses: apple/ssh-action@master
+      uses: appleboy/ssh-action@master
       with: 
         host: api.theorbits.tech
         username: sahil
