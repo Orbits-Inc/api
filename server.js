@@ -12,14 +12,22 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.set("trust proxy", true);
+function getIp(req) {
+    let ip = req.connection.remoteAddress;
+    ip = ip.replace("::ffff:", "");
 
+    if (ip == "127.0.0.1") {
+        ip = req.headers["x-real-ip"];
+    }
+
+    return ip;
+}
 // API Router
 
 app.use("/", router);
 app.get("/ip", (req, res) => {
     res.json({
-        ip: req.header("x-forwarded-for"),
+        ip: getIp(req),
     });
 });
 
