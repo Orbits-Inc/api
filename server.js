@@ -12,9 +12,16 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+app.set("trust proxy", true);
+
 // API Router
 
 app.use("/", router);
+app.get("/ip", (req, res) => {
+    res.json({
+        ip: req.header("x-forwarded-for"),
+    });
+});
 
 connectDB()
     .then((data) => {
