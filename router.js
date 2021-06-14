@@ -4,7 +4,7 @@ const router = Router();
 
 router.get("/", (req, res) => {
     res.status(200).json({
-        data: null,
+        data: process.env.SECRET,
         message: "Welcome to Orbit's API!",
     });
 });
