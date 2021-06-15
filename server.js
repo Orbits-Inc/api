@@ -1,6 +1,7 @@
 const express = require("express");
 const connectDB = require("./db");
 const router = require("./router");
+const cors = require("cors");
 
 if (process.env.NODE_ENV !== "production") {
     require("dotenv").config();
@@ -9,6 +10,7 @@ if (process.env.NODE_ENV !== "production") {
 const PORT = process.env.PORT || 8080;
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
